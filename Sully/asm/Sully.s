@@ -18,13 +18,14 @@ section .text
         call system wrt ..plt
         ret
 
-    format:
+	preformat:
 		mov rax, 0
         lea rdi, [rel cfilename]
         lea rsi, [rel file_format]
-        mov edx, [rel j]
+        mov edx, [rel i]
         call sprintf wrt ..plt
 
+    format:
         mov rax, 0
         lea rdi, [rel filename]
         lea rsi, [rel file_format]
@@ -69,15 +70,27 @@ section .text
 
 	global main
 	main:
+		call preformat
+
+		lea rdi, [rel cfilename]
+		mov rax, 0
+		call access wrt ..plt
+		cmp rax, -1
+		je .skip_dec
+
 		mov al, [rel i]
 		dec al,
-		mov [rel j], al
+
+		.skip_dec:
+			mov al, [rel i]
+			mov [rel j], al
 
 		mov eax, [rel j]
 		cmp eax, 0
 		jl .skip_exec
 
         call format
+
 		lea rdi, [rel filename]
 		lea rbx, [rel fd]
 		call openfile
