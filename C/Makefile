@@ -15,7 +15,7 @@ Sully: Sully.c
 	$(CC) $(CFLAGS) $< -o $@
 
 clean:
-	rm -rf Grace_kid.c Sully_*.c && rm -rf $(NAMES)
+	rm -rf Grace_kid.c Sully_* $(NAMES)
 
 refresh: clean all
 
