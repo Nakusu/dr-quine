@@ -13,7 +13,7 @@ Sully: Sully.s
 	nasm $(NFLAGS) $< -o $@.o && gcc $@.o -o $@ && rm $@.o
 
 clean:
-	rm -rf Grace_kid.s Sully_*.s $(NAMES)
+	rm -rf Grace_kid.s Sully_* $(NAMES)
 
 refresh: clean all
 
