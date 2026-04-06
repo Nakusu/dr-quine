@@ -9,7 +9,7 @@ int main() {
     if (access("Sully_5.c", R_OK) != -1) {
         i--;
     }
-	char filename[100];
+	char filename[20];
 	sprintf(filename, "Sully_%d.c", i);
 	FILE *fd = fopen(filename, "w");
 	fprintf(fd, CONTENT, CONTENT, 10, 9, 34, 37, i);
@@ -17,7 +17,7 @@ int main() {
 	if (i <= 0) {
 		return 0;
 	}
-	char cmd[100];
+	char cmd[500];
 	sprintf(cmd, "clang -Wall -Wextra -Werror %1$s -o Sully_%2$d && ./Sully_%2$d", filename, i);
 	system(cmd);
 }
