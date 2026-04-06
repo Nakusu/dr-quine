@@ -1,11 +1,11 @@
 CC		= clang
 CFLAGS	= -Wall -Wextra -Werror
 
-NAMES	= Collen Grace Sully
+NAMES	= Colleen Grace Sully
 
 all: $(NAMES)
 
-Collen: Collen.c
+Colleen: Colleen.c
 	$(CC) $(CFLAGS) $< -o $@
 
 Grace: Grace.c
